@@ -1,0 +1,5 @@
+{
+  "subscriptionsService": {
+    "SubscriptionsSyncTimeoutInMinutes": 1
+  }
+}
