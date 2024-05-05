@@ -1,12 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
-using TelegramWeatherBot.Services.Settings;
+﻿namespace TelegramWeatherBot.Services.Subscriptions;
 
-namespace TelegramWeatherBot.Services.Subscriptions;
-
-public class SubscriptionsBackgroundService
+public class SubscriptionsBackgroundService(int delayInMinutes)
 {
-    private readonly SubscriptionsSettings _subscriptionsSettings = SubscriptionsSettings.Create();
-
     public async Task<List<string>> RunAsync()
     {
         // var chatId = "163860339";
@@ -22,7 +17,7 @@ public class SubscriptionsBackgroundService
         // }
 
         using var periodicTimer =
-            new PeriodicTimer(TimeSpan.FromMinutes(_subscriptionsSettings.SubscriptionsSyncTimeoutInMinutes));
+            new PeriodicTimer(TimeSpan.FromMinutes(delayInMinutes));
 
 
         throw new NotImplementedException();

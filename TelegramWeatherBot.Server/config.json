@@ -1,6 +1,7 @@
 {
-  "botConfiguration": {
+  "commonSettings": {
     "botToken": "***REMOVED***",
-    "delayValue": 0
+    "usersManagementServiceHost": "https://localhost:44386/api",
+    "SubscriptionsSyncTimeoutInMinutes": 1
   }
 }
