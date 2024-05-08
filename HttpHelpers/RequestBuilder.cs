@@ -1,4 +1,4 @@
-﻿namespace TelegramWeatherBotServer.Http;
+﻿namespace HttpHelpers;
 
 public class RequestBuilder
 {

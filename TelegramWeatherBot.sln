@@ -14,6 +14,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersManagement.BAL", "User
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersManagement.DAL", "UsersManagement.DAL\UsersManagement.DAL.csproj", "{F5E4A849-8BE5-4A97-9DA2-AD274A32D841}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenWeather", "OpenWeather\OpenWeather.csproj", "{D05B7338-A305-4D94-BBE4-4894D06ED4AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpHelpers", "HttpHelpers\HttpHelpers.csproj", "{E625D969-245D-4589-A67F-4EC7BE8A2859}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +40,14 @@ Global
 		{F5E4A849-8BE5-4A97-9DA2-AD274A32D841}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5E4A849-8BE5-4A97-9DA2-AD274A32D841}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5E4A849-8BE5-4A97-9DA2-AD274A32D841}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D05B7338-A305-4D94-BBE4-4894D06ED4AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D05B7338-A305-4D94-BBE4-4894D06ED4AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D05B7338-A305-4D94-BBE4-4894D06ED4AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D05B7338-A305-4D94-BBE4-4894D06ED4AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E625D969-245D-4589-A67F-4EC7BE8A2859}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E625D969-245D-4589-A67F-4EC7BE8A2859}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E625D969-245D-4589-A67F-4EC7BE8A2859}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E625D969-245D-4589-A67F-4EC7BE8A2859}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{384771EA-9F34-4EBF-8CB5-D531B1A0550F} = {199F0273-12AE-4FEC-B8CA-806D2C464A07}

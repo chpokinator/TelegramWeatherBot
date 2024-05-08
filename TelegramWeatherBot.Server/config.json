@@ -3,5 +3,10 @@
     "botToken": "***REMOVED***",
     "usersManagementServiceHost": "https://localhost:44386/api",
     "SubscriptionsSyncTimeoutInMinutes": 1
+  },
+  "openWeather": {
+    "AppId": "***REMOVED***",
+    "Language": "ua",
+    "Units": "metric"
   }
 }

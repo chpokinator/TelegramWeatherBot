@@ -1,22 +1,29 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Telegram.Bot;
-using TelegramWeatherBotServer;
 using TelegramWeatherBotServer.Extensions;
-using TelegramWeatherBotServer.Settings;
 
 const string configPath = "config.json";
+var configuration = new ConfigurationBuilder()
+    .AddJsonFile(configPath, optional: false)
+    .Build();
+
 var host = Host.CreateDefaultBuilder(args)
     .ConfigureServices(services =>
     {
         services
-            .AddSettings(configPath)
-            .AddHttpClient()
-            .AddMainServices();
+            .AddSettings(configuration)
+            .AddBotServices(configuration)
+            .AddWeatherServices()
+            .AddHostedServices()
+            .AddHttpClient();
     })
     .UseConsoleLifetime()
     .Build();
+
+// var service = host.Services.GetService<OpenWeatherService>();
+// var locations = service.GetLocations("позняки");
+// var result = service.GetCurrentWeather();
 
 await host.RunAsync();
 
