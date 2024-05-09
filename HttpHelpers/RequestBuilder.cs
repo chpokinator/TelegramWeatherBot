@@ -1,4 +1,6 @@
-﻿namespace HttpHelpers;
+﻿using System.Net.Http.Headers;
+
+namespace HttpHelpers;
 
 public class RequestBuilder
 {
@@ -19,6 +21,13 @@ public class RequestBuilder
     public RequestBuilder AddParameters(IEnumerable<Parameter> parameters)
     {
         _parameters.AddRange(parameters);
+        return this;
+    }
+
+    public RequestBuilder SetJsonBody(object body)
+    {
+        _httpRequestMessage.Content = new StringContent(body.ToString() ?? string.Empty);
+        _httpRequestMessage.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
         return this;
     }
 

@@ -20,4 +20,9 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\UsersManagement.BAL\UsersManagement.BAL.csproj" />
+      <ProjectReference Include="..\UsersManagement.DAL\UsersManagement.DAL.csproj" />
+    </ItemGroup>
+
 </Project>
