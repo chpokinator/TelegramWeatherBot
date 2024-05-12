@@ -9,8 +9,13 @@ public static class Extensions
         return parameters.Any() ? $"?{string.Join('&', parameters)}" : string.Empty;
     }
 
-    public static JToken? ToJToken(this HttpResponseMessage response)
+    public static JToken? ToJToken(this HttpResponseMessage? response)
     {
+        if (response is null)
+        {
+            return default;
+        }
+        
         var content = response.Content.ReadAsStringAsync().Result;
         try
         {

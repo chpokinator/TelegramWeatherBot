@@ -8,6 +8,7 @@ public static class RoutesMapper
     {
         group.MapPost("/", SubscriptionsHandlers.AddSubscription);
         group.MapDelete("/{telegramUserId}", SubscriptionsHandlers.RemoveSubscriptions);
+        group.MapGet("/", SubscriptionsHandlers.GetSubscriptions);
         group.MapGet("/{telegramUserId}", SubscriptionsHandlers.GetUserSubscriptions);
         return group;
     }

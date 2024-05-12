@@ -6,19 +6,12 @@ using OpenWeather.Models.Locations;
 
 namespace OpenWeather;
 
-public class OpenWeatherService
+public class OpenWeatherService(RequestSender sender, IOptions<OpenWeatherSettings> options)
 {
-    private readonly IHttpClientFactory _httpClientFactory;
-    private readonly OpenWeatherSettings _settings;
+    private readonly OpenWeatherSettings _settings = options.Value;
     private const string BASE_URL = "https://api.openweathermap.org";
-    
-    public OpenWeatherService(IHttpClientFactory httpClientFactory, IOptions<OpenWeatherSettings> options)
-    {
-        _httpClientFactory = httpClientFactory;
-        _settings = options.Value;
-    }
 
-    public CurrentWeather? GetCurrentWeather(string? lon, string? lat)
+    public Task<CurrentWeather?> GetCurrentWeather(string? lon, string? lat)
     {
         var parameters = new List<Parameter>
         {
@@ -27,27 +20,42 @@ public class OpenWeatherService
             new("units", _settings.Units),
             new("lang", _settings.Language)
         };
-
-        var httpClient = _httpClientFactory.CreateClient();
-        var response = httpClient.SendAsync(CreateRequest(parameters, "/data/2.5/weather")).Result.ToJToken();
-        return response?.ToModel<CurrentWeather>();
+        
+        
+        var response = sender.SendRequest(CreateRequest(parameters, "/data/2.5/weather")).Result.ToJToken();
+        return Task.FromResult(response?.ToModel<CurrentWeather>());
     }
 
-    public List<Location>? GetLocations(string? query)
+    public Task<List<Location>?> GetLocations(string? query)
     {
         var parameter = new Parameter("q", query);
-        var httpClient = _httpClientFactory.CreateClient();
-        
-        var response = httpClient.SendAsync(CreateRequest(new List<Parameter>{parameter}, "/geo/1.0/direct")).Result.ToJToken();
+        var response = sender.SendRequest(CreateRequest(new List<Parameter>{parameter}, "/geo/1.0/direct")).Result.ToJToken();
         if (response is JArray array)
         {
-            return array.ToModelsList<Location>();
+            return Task.FromResult(array.ToModelsList<Location>());
         }
 
-        return default;
+        return Task.FromResult<List<Location>?>(default);
     }
 
-    public string GetIconUrl(string? iconCode)
+    public Task<List<Location>?> GetLocations(string lat, string lon)
+    {
+        var parameters = new List<Parameter>
+        {
+            new("lat", lat),
+            new("lon", lon)
+        };
+        
+        var response = sender.SendRequest(CreateRequest(parameters, "/geo/1.0/reverse")).Result.ToJToken();
+        if (response is JArray array)
+        {
+            return Task.FromResult(array.ToModelsList<Location>());
+        }
+
+        return Task.FromResult<List<Location>?>(default);
+    }
+
+    public static string GetIconUrl(string? iconCode)
     {
         return string.IsNullOrEmpty(iconCode) ? string.Empty : $"https://openweathermap.org/img/wn/{iconCode}@2x.png";
     }

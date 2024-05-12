@@ -16,13 +16,21 @@ public class SubscriptionsRepository(DataContext context) : ISubscriptionsReposi
         {
             return false;
         }
-        
+
         context.Subscriptions.RemoveRange(activeSubscriptions);
         var result = await context.SaveChangesAsync();
         return result > 0;
     }
 
     public async Task<List<Subscription>> GetSubscriptions(string telegramUserId)
+    {
+        return await context.Subscriptions
+            .AsNoTracking()
+            .Where(x => x.TelegramUserId == telegramUserId)
+            .ToListAsync();
+    }
+
+    public async Task<List<Subscription>> GetSubscriptions()
     {
         return await context.Subscriptions.AsNoTracking().ToListAsync();
     }

@@ -6,5 +6,6 @@ public interface ISubscriptionsRepository
 {
     Task<bool> RemoveSubscriptions(string telegramUserId);
     Task<List<Subscription>> GetSubscriptions(string telegramUserId);
+    Task<List<Subscription>> GetSubscriptions();
     Task<bool> AddSubscription(Subscription subscription);
 }

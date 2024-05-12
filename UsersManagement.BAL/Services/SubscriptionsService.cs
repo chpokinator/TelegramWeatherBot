@@ -20,4 +20,10 @@ public class SubscriptionsService(ISubscriptionsRepository repository)
         var subscriptions = await repository.GetSubscriptions(telegramUserId);
         return subscriptions.ToEnumerableBal();
     }
+
+    public async Task<List<SubscriptionBal>> GetSubscriptions()
+    {
+        var subscriptions = await repository.GetSubscriptions();
+        return subscriptions.ToEnumerableBal();
+    }
 }

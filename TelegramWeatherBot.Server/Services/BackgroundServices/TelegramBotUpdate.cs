@@ -22,17 +22,6 @@ public class TelegramBotUpdate(CommandsCoordinator coordinator, ITelegramBotClie
         CancellationToken cancellationToken)
     {
         await _coordinator.StartCommandsExecution(botClient, update);
-        
-        // ReplyKeyboardMarkup replyKeyboardMarkup = new(new[]
-        //     {
-        //         new List<KeyboardButton>{"/start", "/puk"}
-        //     })
-        // {
-        //     ResizeKeyboard = true
-        // };
-        //
-        // await botClient.SendTextMessageAsync(message.From!.Id, "выбери что-то", replyMarkup: replyKeyboardMarkup,
-        //     cancellationToken: cancellationToken);
     }
     
     private static Task PollingErrorAsync(

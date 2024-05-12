@@ -32,4 +32,10 @@ public static class SubscriptionsHandlers
         var result = await service.GetUserSubscriptions(telegramUserId);
         return TypedResults.Json(result.ToEnumerableDto());
     }
+
+    public static async Task<IResult> GetSubscriptions(SubscriptionsService service)
+    {
+        var result = await service.GetSubscriptions();
+        return TypedResults.Json(result.ToEnumerableDto());
+    }
 }
