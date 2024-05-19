@@ -11,7 +11,7 @@ using WeatherLocation = OpenWeather.Models.Locations.Location;
 
 namespace TelegramWeatherBotServer.BotCommands.AdditionalOperations;
 
-public class AddSubscription(OpenWeatherService weatherService, UsersManagementService usersManagementService) : Command
+public class AddSubscriptionOperation(OpenWeatherService weatherService, UsersManagementService usersManagementService) : Command
 {
     public override async Task ExecuteAsync(ITelegramBotClient botClient, Update update)
     {
@@ -31,7 +31,7 @@ public class AddSubscription(OpenWeatherService weatherService, UsersManagementS
 
         if (weatherLocations is null || weatherLocations.Count < 1)
         {
-            await CommandUtils.SendErrorMessage(botClient, update);
+            await CommandUtils.SendLocationErrorMessage(botClient, update);
             return;
         }
 

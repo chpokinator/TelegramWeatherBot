@@ -14,8 +14,8 @@ public class CommandsService(OpenWeatherService weatherService, UsersManagementS
             { Commands.DEFAULT, [new DefaultCommand()] },
             { Commands.START, [new HelpCommand()] },
             { Commands.HELP, [new HelpCommand()] },
-            { Commands.GET_WEATHER, [new WeatherCommand(), new GetWeather(weatherService)] },
-            { Commands.ADD_SUBSCRIPTION, [new AddSubscriptionCommand(), new AddSubscription(weatherService, usersManagementService)] },
+            { Commands.GET_WEATHER, [new WeatherCommand(), new GetWeatherOperation(weatherService)] },
+            { Commands.ADD_SUBSCRIPTION, [new AddSubscriptionCommand(), new AddSubscriptionOperation(weatherService, usersManagementService)] },
             { Commands.GET_SUBSCRIPTION, [new GetSubscriptionsCommand(usersManagementService)] },
             { Commands.DELETE_SUBSCRIPTION, [new DeleteSubscriptionCommand(usersManagementService)] }
         };

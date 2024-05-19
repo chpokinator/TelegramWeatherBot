@@ -6,7 +6,7 @@ using Telegram.Bot.Types;
 
 namespace TelegramWeatherBotServer.BotCommands.AdditionalOperations;
 
-public class GetWeather(OpenWeatherService weatherService) : Command
+public class GetWeatherOperation(OpenWeatherService weatherService) : Command
 {
     public override async Task ExecuteAsync(ITelegramBotClient botClient, Update update)
     {
@@ -28,7 +28,7 @@ public class GetWeather(OpenWeatherService weatherService) : Command
             var weatherLocations = await weatherService.GetLocations(weatherQuery);
             if (weatherLocations is null || weatherLocations.Count < 1)
             {
-                await CommandUtils.SendErrorMessage(botClient, update);
+                await CommandUtils.SendLocationErrorMessage(botClient, update);
                 return;
             }
 
@@ -36,9 +36,9 @@ public class GetWeather(OpenWeatherService weatherService) : Command
             weather = await weatherService.GetCurrentWeather(location.Lon, location.Lat);
         }
 
-        if (weather is null)
+        if (weather?.Main is null)
         {
-            await CommandUtils.SendErrorMessage(botClient, update);
+            await CommandUtils.SendLocationErrorMessage(botClient, update);
             return;
         }
 

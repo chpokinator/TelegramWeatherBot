@@ -2,7 +2,7 @@
   "commonSettings": {
     "botToken": "***REMOVED***",
     "usersManagementServiceHost": "https://localhost:44386/users-management/subscriptions",
-    "SubscriptionsSyncTimeoutInMinutes": 1
+    "SubscriptionsSyncTimeoutInMinutes": 15
   },
   "openWeather": {
     "AppId": "***REMOVED***",

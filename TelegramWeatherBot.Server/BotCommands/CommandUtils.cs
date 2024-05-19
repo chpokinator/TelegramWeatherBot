@@ -11,7 +11,7 @@ namespace TelegramWeatherBotServer.BotCommands;
 
 public static class CommandUtils
 {
-    public static async Task SendErrorMessage(ITelegramBotClient botClient, Update update)
+    public static async Task SendLocationErrorMessage(ITelegramBotClient botClient, Update update)
     {
         var text = "Інформації щодо локації не було знайдено 😢\\. Спробуйте ще раз";
         await botClient.SendTextMessageAsync(update.Message!.Chat.Id, text);

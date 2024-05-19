@@ -60,7 +60,7 @@ public class SubscriptionWeather(
                     }
 
                     var weatherInfo = await weatherService.GetCurrentWeather(coordsSplit[1], coordsSplit[0]);
-                    if (weatherInfo is null)
+                    if (weatherInfo?.Main is null)
                     {
                         await SendUnsuccessfulSubscriptionWeather(subscription.LocationName, subscription.ChatId);
                         continue;
