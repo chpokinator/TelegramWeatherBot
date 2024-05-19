@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenWeather", "OpenWeather\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpHelpers", "HttpHelpers\HttpHelpers.csproj", "{E625D969-245D-4589-A67F-4EC7BE8A2859}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{874FBCDE-4B14-495A-8096-1F89E6A4F141}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 		{E625D969-245D-4589-A67F-4EC7BE8A2859}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E625D969-245D-4589-A67F-4EC7BE8A2859}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E625D969-245D-4589-A67F-4EC7BE8A2859}.Release|Any CPU.Build.0 = Release|Any CPU
+		{874FBCDE-4B14-495A-8096-1F89E6A4F141}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{874FBCDE-4B14-495A-8096-1F89E6A4F141}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{874FBCDE-4B14-495A-8096-1F89E6A4F141}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{874FBCDE-4B14-495A-8096-1F89E6A4F141}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{384771EA-9F34-4EBF-8CB5-D531B1A0550F} = {199F0273-12AE-4FEC-B8CA-806D2C464A07}

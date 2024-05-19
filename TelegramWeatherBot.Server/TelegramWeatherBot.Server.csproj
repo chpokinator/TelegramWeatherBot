@@ -29,10 +29,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="TelegramBot\Interfaces\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\HttpHelpers\HttpHelpers.csproj" />
       <ProjectReference Include="..\OpenWeather\OpenWeather.csproj" />
     </ItemGroup>

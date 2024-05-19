@@ -6,7 +6,7 @@ public static class Converter
 {
     public static T? ToModel<T>(this JToken? token) where T : class
     {
-        if (token is null)
+        if (token is null || !token.HasValues)
         {
             return default;
         }
@@ -25,7 +25,7 @@ public static class Converter
 
     public static List<T>? ToModelsList<T>(this JArray? jArray) where T : class
     {
-        if (jArray is null)
+        if (jArray?.FirstOrDefault() is null)
         {
             return default;
         }
