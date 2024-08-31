@@ -11,10 +11,8 @@ public class СonverterTests
             // Arrange
             var json = "{ \"Name\": \"John Doe\", \"Age\": 30 }";
             var token = JToken.Parse(json);
-
             // Act
             var result = token.ToModel<Person>();
-
             // Assert
             Assert.NotNull(result);
             Assert.Equal("John Doe", result.Name);
@@ -26,10 +24,8 @@ public class СonverterTests
         {
             // Arrange
             JToken? token = null;
-
             // Act
             var result = token.ToModel<Person>();
-
             // Assert
             Assert.Null(result);
         }

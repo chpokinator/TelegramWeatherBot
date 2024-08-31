@@ -25,4 +25,8 @@
       <ProjectReference Include="..\UsersManagement.DAL\UsersManagement.DAL.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+    </ItemGroup>
+
 </Project>
